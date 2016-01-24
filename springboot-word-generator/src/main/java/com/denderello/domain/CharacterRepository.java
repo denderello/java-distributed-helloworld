@@ -14,13 +14,13 @@ public class CharacterRepository {
     private RestTemplate restTemplate;
 
     @HystrixCommand(fallbackMethod = "getCharacterFallback")
-    public Character getCharacter() {
-        return this.restTemplate.getForObject("http://character/character", Character.class);
+    public Character getCharacter(char requestedCharacter) {
+        return this.restTemplate.getForObject("http://character/character/" + requestedCharacter, Character.class);
     }
 
-    public Character getCharacterFallback() {
+    public Character getCharacterFallback(char requestedCharacter) {
         Character character = new Character();
-        character.setCharacter(".");
+        character.setCharacter('.');
 
         return character;
     }

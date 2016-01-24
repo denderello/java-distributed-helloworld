@@ -1,13 +1,13 @@
 package com.denderello.domain;
 
 public class Character {
-    private final String character;
+    private final char character;
 
-    public Character(String character) {
+    public Character(char character) {
         this.character = character;
     }
 
-    public String getCharacter() {
+    public char getCharacter() {
         return character;
     }
 }
