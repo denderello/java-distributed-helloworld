@@ -1,8 +1,19 @@
+consul:
+  image: progrium/consul
+  command: -server -bootstrap -ui-dir /ui
+  ports:
+    - 8400:8400
+    - 8500:8500
+    - 8600:8600
+
 character:
   build: ./springboot-char-generator
+  links:
+    - consul
+
 word:
   build: ./springboot-word-generator
   links:
-    - character
+    - consul
   ports:
-   - "8080:80"
+   - 8080:80
