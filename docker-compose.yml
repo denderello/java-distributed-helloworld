@@ -1,0 +1,8 @@
+character:
+  build: ./springboot-char-generator
+word:
+  build: ./springboot-word-generator
+  links:
+    - character
+  ports:
+   - "8080:80"

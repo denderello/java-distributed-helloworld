@@ -10,7 +10,7 @@ public class CharacterRepository {
     @HystrixCommand(fallbackMethod = "getCharacterFallback")
     public Character getCharacter() {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject("http://localhost:8090/character", Character.class);
+        return restTemplate.getForObject("http://character/character", Character.class);
     }
 
     public Character getCharacterFallback() {
